@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_OuterLayout.cshtml";
+}
+
+
+<h2>
+
+    @if (Model != null)
+    {
+
+
+        @Model.name
+        @Model.id
+        @Model.gender
+        @Model.profession
+        @Model.hobbies
+
+
+
+
+    }
+</h2>
+
+<h2>Sign up</h2>
+
+<form action="" method="post">
+
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="name"><br><br>
+
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" placeholder="id"><br><br>
+
+    <label for="gender" id="gender" name="gender">Gender:</label>
+
+    <input type="radio" id="male" name="gender" value=" Male ">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value=" Female ">
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="gender" value=" Other ">
+    <label for="other">Other</label>
+
+
+    <br>
+    <br>
+
+    <label for="profession">Profession:</label>
+    <select id="profession" name="profession">
+        <option value="">Select your profession</option>
+        <option value=" Teacher ">Teacher</option>
+        <option value=" Student ">Student</option>
+    </select>
+    <br>
+    <br>
+
+
+
+
+    <label for="hobbies" id="hobbies" name="hobbies">Hobbies:</label>
+
+    <input type="checkbox" id="gardening" name="hobbies" value=" Gardening ">
+    <label for="gardening">Gardening</label>
+
+    <input type="checkbox" id="playing" name="hobbies" value=" Playing ">
+    <label for="playing">Playing</label>
+
+    <input type="checkbox" id="gaming" name="hobbies" value=" Gaming ">
+    <label for="gaming">Gaming</label>
+
+    <input type="checkbox" id="tour" name="hobbies" value=" Tour ">
+    <label for="tour">Tour</label>
+
+    <br>
+    <br>
+
+    <input type="submit" value="Signup">
+
+
+</form>
