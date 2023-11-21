@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe02e673c95f4130a77784f97670761a" Name="Diagram1">
+        <EntityTypeShape EntityType="Zero_HungerModel.dbDISTRIBUTION_List" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zero_HungerModel.dbEMPLOYEE_List" Width="1.5" PointX="9.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zero_HungerModel.dbFOODITEM_List" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zero_HungerModel.dbNGO_List" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zero_HungerModel.dbRESTAURENT_List" Width="1.5" PointX="12.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zero_HungerModel.dbTRACKCOLLECTION_List" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zero_HungerModel.NGO_RESTAURENT" Width="1.5" PointX="15" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbDISTRIBUTION_List_dbEMPLOYEE_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbDISTRIBUTION_List_dbFOODITEM_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbDISTRIBUTION_List_dbNGO_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbDISTRIBUTION_List_dbRESTAURENT_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbEMPLOYEE_List_dbFOODITEM_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbEMPLOYEE_List_dbNGO_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbEMPLOYEE_List_dbRESTAURENT_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbFOODITEM_List_dbTRACKCOLLECTION_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbRESTAURENT_List_dbFOODITEM_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbTRACKCOLLECTION_List_dbFOODITEM_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_NGO_RESTAURENT_dbNGO_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbRESTAURENT_List_dbRESTAURENT_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List" ManuallyRouted="false" />
+        <AssociationConnector Association="Zero_HungerModel.FK_NGO_RESTAURENT_dbRESTAURENT_List" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

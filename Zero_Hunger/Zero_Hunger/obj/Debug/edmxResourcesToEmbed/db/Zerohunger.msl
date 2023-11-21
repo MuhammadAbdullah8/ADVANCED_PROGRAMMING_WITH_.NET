@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Zero_HungerModelStoreContainer" CdmEntityContainer="Zero_HungerEntities">
+    <EntitySetMapping Name="dbDISTRIBUTION_List">
+      <EntityTypeMapping TypeName="Zero_HungerModel.dbDISTRIBUTION_List">
+        <MappingFragment StoreEntitySet="dbDISTRIBUTION_List">
+          <ScalarProperty Name="DISTRIBUTION_ID" ColumnName="DISTRIBUTION_ID" />
+          <ScalarProperty Name="DISTRIBUTION_TIME" ColumnName="DISTRIBUTION_TIME" />
+          <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+          <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+          <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbEMPLOYEE_List">
+      <EntityTypeMapping TypeName="Zero_HungerModel.dbEMPLOYEE_List">
+        <MappingFragment StoreEntitySet="dbEMPLOYEE_List">
+          <ScalarProperty Name="EMPLOYYE_ID" ColumnName="EMPLOYYE_ID" />
+          <ScalarProperty Name="EMPLOYEE_NAME" ColumnName="EMPLOYEE_NAME" />
+          <ScalarProperty Name="REQUESTED_TIME" ColumnName="REQUESTED_TIME" />
+          <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+          <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+          <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbFOODITEM_List">
+      <EntityTypeMapping TypeName="Zero_HungerModel.dbFOODITEM_List">
+        <MappingFragment StoreEntitySet="dbFOODITEM_List">
+          <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+          <ScalarProperty Name="FOODITEM_List" ColumnName="FOODITEM_List" />
+          <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbNGO_List">
+      <EntityTypeMapping TypeName="Zero_HungerModel.dbNGO_List">
+        <MappingFragment StoreEntitySet="dbNGO_List">
+          <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+          <ScalarProperty Name="NGO_NAME" ColumnName="NGO_NAME" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbRESTAURENT_List">
+      <EntityTypeMapping TypeName="Zero_HungerModel.dbRESTAURENT_List">
+        <MappingFragment StoreEntitySet="dbRESTAURENT_List">
+          <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+          <ScalarProperty Name="RESTAURENT_NAME" ColumnName="RESTAURENT_NAME" />
+          <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+          <ScalarProperty Name="MAXPRESERVATION_TIME" ColumnName="MAXPRESERVATION_TIME" />
+          <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbTRACKCOLLECTION_List">
+      <EntityTypeMapping TypeName="Zero_HungerModel.dbTRACKCOLLECTION_List">
+        <MappingFragment StoreEntitySet="dbTRACKCOLLECTION_List">
+          <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+          <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+          <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+          <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="DISTRIBUTION_ID" ColumnName="DISTRIBUTION_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGO_RESTAURENT">
+      <EntityTypeMapping TypeName="Zero_HungerModel.NGO_RESTAURENT">
+        <MappingFragment StoreEntitySet="NGO_RESTAURENT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NG_ID" ColumnName="NG_ID" />
+          <ScalarProperty Name="RS_ID" ColumnName="RS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

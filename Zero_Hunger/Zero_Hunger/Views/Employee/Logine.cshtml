@@ -1,0 +1,55 @@
+﻿@model Zero_Hunger.db.dbEMPLOYEE_List
+@{
+    ViewBag.Title = "Logine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Logine</h2>
+
+
+
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+
+@using (Html.BeginForm("Logine", "Employee", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="container">
+        <div class="form-group">
+            <label>Name</label>
+            @Html.ValidationMessageFor(x => x.EMPLOYEE_NAME, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.EMPLOYEE_NAME, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-group">
+            <label>Password</label>
+            @Html.ValidationMessageFor(x => x.password, "", new { @class = "error" })
+            @Html.PasswordFor(x => x.password, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="container">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="Signupe">Don't have any account? Login</a>
+    </div>
+
+    <br />
+    <br />
+    <div class="container">
+        <label>@ViewBag.Notification</label>
+
+    </div>
+
+
+}

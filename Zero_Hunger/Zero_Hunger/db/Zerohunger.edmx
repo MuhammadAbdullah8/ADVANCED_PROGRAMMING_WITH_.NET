@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Zero_HungerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dbDISTRIBUTION_List">
+          <Key>
+            <PropertyRef Name="DISTRIBUTION_ID" />
+          </Key>
+          <Property Name="DISTRIBUTION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DISTRIBUTION_TIME" Type="varchar" MaxLength="50" />
+          <Property Name="NGO_ID" Type="int" />
+          <Property Name="EMPLOYEE_ID" Type="int" />
+          <Property Name="RESTAURENT_ID" Type="int" />
+          <Property Name="COLLECTREQUEST_ID" Type="int" />
+          <Property Name="FOOD_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="dbEMPLOYEE_List">
+          <Key>
+            <PropertyRef Name="EMPLOYYE_ID" />
+          </Key>
+          <Property Name="EMPLOYYE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMPLOYEE_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="REQUESTED_TIME" Type="varchar" MaxLength="50" />
+          <Property Name="NGO_ID" Type="int" />
+          <Property Name="RESTAURENT_ID" Type="int" />
+          <Property Name="FOOD_ID" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="dbFOODITEM_List">
+          <Key>
+            <PropertyRef Name="FOOD_ID" />
+          </Key>
+          <Property Name="FOOD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FOODITEM_List" Type="varchar" MaxLength="50" />
+          <Property Name="COLLECTREQUEST_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="dbNGO_List">
+          <Key>
+            <PropertyRef Name="NGO_ID" />
+          </Key>
+          <Property Name="NGO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NGO_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="dbRESTAURENT_List">
+          <Key>
+            <PropertyRef Name="RESTAURENT_ID" />
+          </Key>
+          <Property Name="RESTAURENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RESTAURENT_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="COLLECTREQUEST_ID" Type="int" />
+          <Property Name="MAXPRESERVATION_TIME" Type="varchar" MaxLength="50" />
+          <Property Name="FOOD_ID" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="dbTRACKCOLLECTION_List">
+          <Key>
+            <PropertyRef Name="COLLECTREQUEST_ID" />
+          </Key>
+          <Property Name="COLLECTREQUEST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NGO_ID" Type="int" />
+          <Property Name="RESTAURENT_ID" Type="int" />
+          <Property Name="FOOD_ID" Type="int" />
+          <Property Name="EMPLOYEE_ID" Type="int" />
+          <Property Name="DISTRIBUTION_ID" Type="int" />
+          <Property Name="STATUS" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NGO_RESTAURENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NG_ID" Type="int" />
+          <Property Name="RS_ID" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbDISTRIBUTION_List_dbEMPLOYEE_List">
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbEMPLOYEE_List">
+              <PropertyRef Name="EMPLOYYE_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbNGO_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="NGO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List">
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbEMPLOYEE_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbEMPLOYEE_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbEMPLOYEE_List_dbNGO_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="dbEMPLOYEE_List">
+              <PropertyRef Name="NGO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbEMPLOYEE_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbEMPLOYEE_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbFOODITEM_List_dbTRACKCOLLECTION_List">
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="0..1" />
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Principal>
+            <Dependent Role="dbFOODITEM_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbRESTAURENT_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbRESTAURENT_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbRESTAURENT_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="1" />
+          <End Role="dbRESTAURENT_List1" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbRESTAURENT_List1">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List">
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="0..1" />
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Principal>
+            <Dependent Role="dbRESTAURENT_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List">
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="DISTRIBUTION_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="DISTRIBUTION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List">
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbEMPLOYEE_List">
+              <PropertyRef Name="EMPLOYYE_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="NGO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NGO_RESTAURENT_dbNGO_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="NGO_RESTAURENT" Type="Self.NGO_RESTAURENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="NGO_RESTAURENT">
+              <PropertyRef Name="NG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NGO_RESTAURENT_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="NGO_RESTAURENT" Type="Self.NGO_RESTAURENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="NGO_RESTAURENT">
+              <PropertyRef Name="RS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Zero_HungerModelStoreContainer">
+          <EntitySet Name="dbDISTRIBUTION_List" EntityType="Self.dbDISTRIBUTION_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEMPLOYEE_List" EntityType="Self.dbEMPLOYEE_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbFOODITEM_List" EntityType="Self.dbFOODITEM_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbNGO_List" EntityType="Self.dbNGO_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbRESTAURENT_List" EntityType="Self.dbRESTAURENT_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbTRACKCOLLECTION_List" EntityType="Self.dbTRACKCOLLECTION_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGO_RESTAURENT" EntityType="Self.NGO_RESTAURENT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbEMPLOYEE_List" Association="Self.FK_dbDISTRIBUTION_List_dbEMPLOYEE_List">
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbFOODITEM_List" Association="Self.FK_dbDISTRIBUTION_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbNGO_List" Association="Self.FK_dbDISTRIBUTION_List_dbNGO_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbRESTAURENT_List" Association="Self.FK_dbDISTRIBUTION_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List">
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbEMPLOYEE_List_dbFOODITEM_List" Association="Self.FK_dbEMPLOYEE_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbEMPLOYEE_List_dbNGO_List" Association="Self.FK_dbEMPLOYEE_List_dbNGO_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbEMPLOYEE_List_dbRESTAURENT_List" Association="Self.FK_dbEMPLOYEE_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbFOODITEM_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbFOODITEM_List_dbTRACKCOLLECTION_List">
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbRESTAURENT_List_dbFOODITEM_List" Association="Self.FK_dbRESTAURENT_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbRESTAURENT_List_dbRESTAURENT_List" Association="Self.FK_dbRESTAURENT_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbRESTAURENT_List1" EntitySet="dbRESTAURENT_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List">
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List">
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List">
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbFOODITEM_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NGO_RESTAURENT_dbNGO_List" Association="Self.FK_NGO_RESTAURENT_dbNGO_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="NGO_RESTAURENT" EntitySet="NGO_RESTAURENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NGO_RESTAURENT_dbRESTAURENT_List" Association="Self.FK_NGO_RESTAURENT_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="NGO_RESTAURENT" EntitySet="NGO_RESTAURENT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Zero_HungerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dbDISTRIBUTION_List">
+          <Key>
+            <PropertyRef Name="DISTRIBUTION_ID" />
+          </Key>
+          <Property Name="DISTRIBUTION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DISTRIBUTION_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGO_ID" Type="Int32" />
+          <Property Name="EMPLOYEE_ID" Type="Int32" />
+          <Property Name="RESTAURENT_ID" Type="Int32" />
+          <Property Name="COLLECTREQUEST_ID" Type="Int32" />
+          <Property Name="FOOD_ID" Type="Int32" />
+          <NavigationProperty Name="dbEMPLOYEE_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbEMPLOYEE_List" FromRole="dbDISTRIBUTION_List" ToRole="dbEMPLOYEE_List" />
+          <NavigationProperty Name="dbFOODITEM_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbFOODITEM_List" FromRole="dbDISTRIBUTION_List" ToRole="dbFOODITEM_List" />
+          <NavigationProperty Name="dbNGO_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbNGO_List" FromRole="dbDISTRIBUTION_List" ToRole="dbNGO_List" />
+          <NavigationProperty Name="dbRESTAURENT_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbRESTAURENT_List" FromRole="dbDISTRIBUTION_List" ToRole="dbRESTAURENT_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List" FromRole="dbDISTRIBUTION_List" ToRole="dbTRACKCOLLECTION_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List1" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List" FromRole="dbDISTRIBUTION_List" ToRole="dbTRACKCOLLECTION_List" />
+        </EntityType>
+        <EntityType Name="dbEMPLOYEE_List">
+          <Key>
+            <PropertyRef Name="EMPLOYYE_ID" />
+          </Key>
+          <Property Name="EMPLOYYE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REQUESTED_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGO_ID" Type="Int32" />
+          <Property Name="RESTAURENT_ID" Type="Int32" />
+          <Property Name="FOOD_ID" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dbDISTRIBUTION_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbEMPLOYEE_List" FromRole="dbEMPLOYEE_List" ToRole="dbDISTRIBUTION_List" />
+          <NavigationProperty Name="dbFOODITEM_List" Relationship="Self.FK_dbEMPLOYEE_List_dbFOODITEM_List" FromRole="dbEMPLOYEE_List" ToRole="dbFOODITEM_List" />
+          <NavigationProperty Name="dbNGO_List" Relationship="Self.FK_dbEMPLOYEE_List_dbNGO_List" FromRole="dbEMPLOYEE_List" ToRole="dbNGO_List" />
+          <NavigationProperty Name="dbRESTAURENT_List" Relationship="Self.FK_dbEMPLOYEE_List_dbRESTAURENT_List" FromRole="dbEMPLOYEE_List" ToRole="dbRESTAURENT_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List" FromRole="dbEMPLOYEE_List" ToRole="dbTRACKCOLLECTION_List" />
+        </EntityType>
+        <EntityType Name="dbFOODITEM_List">
+          <Key>
+            <PropertyRef Name="FOOD_ID" />
+          </Key>
+          <Property Name="FOOD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FOODITEM_List" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COLLECTREQUEST_ID" Type="Int32" />
+          <NavigationProperty Name="dbDISTRIBUTION_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbFOODITEM_List" FromRole="dbFOODITEM_List" ToRole="dbDISTRIBUTION_List" />
+          <NavigationProperty Name="dbEMPLOYEE_List" Relationship="Self.FK_dbEMPLOYEE_List_dbFOODITEM_List" FromRole="dbFOODITEM_List" ToRole="dbEMPLOYEE_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List" Relationship="Self.FK_dbFOODITEM_List_dbTRACKCOLLECTION_List" FromRole="dbFOODITEM_List" ToRole="dbTRACKCOLLECTION_List" />
+          <NavigationProperty Name="dbRESTAURENT_List" Relationship="Self.FK_dbRESTAURENT_List_dbFOODITEM_List" FromRole="dbFOODITEM_List" ToRole="dbRESTAURENT_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List1" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbFOODITEM_List" FromRole="dbFOODITEM_List" ToRole="dbTRACKCOLLECTION_List" />
+        </EntityType>
+        <EntityType Name="dbNGO_List">
+          <Key>
+            <PropertyRef Name="NGO_ID" />
+          </Key>
+          <Property Name="NGO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NGO_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dbDISTRIBUTION_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbNGO_List" FromRole="dbNGO_List" ToRole="dbDISTRIBUTION_List" />
+          <NavigationProperty Name="dbEMPLOYEE_List" Relationship="Self.FK_dbEMPLOYEE_List_dbNGO_List" FromRole="dbNGO_List" ToRole="dbEMPLOYEE_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List" FromRole="dbNGO_List" ToRole="dbTRACKCOLLECTION_List" />
+          <NavigationProperty Name="NGO_RESTAURENT" Relationship="Self.FK_NGO_RESTAURENT_dbNGO_List" FromRole="dbNGO_List" ToRole="NGO_RESTAURENT" />
+        </EntityType>
+        <EntityType Name="dbRESTAURENT_List">
+          <Key>
+            <PropertyRef Name="RESTAURENT_ID" />
+          </Key>
+          <Property Name="RESTAURENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RESTAURENT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COLLECTREQUEST_ID" Type="Int32" />
+          <Property Name="MAXPRESERVATION_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FOOD_ID" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dbDISTRIBUTION_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbRESTAURENT_List" FromRole="dbRESTAURENT_List" ToRole="dbDISTRIBUTION_List" />
+          <NavigationProperty Name="dbEMPLOYEE_List" Relationship="Self.FK_dbEMPLOYEE_List_dbRESTAURENT_List" FromRole="dbRESTAURENT_List" ToRole="dbEMPLOYEE_List" />
+          <NavigationProperty Name="dbFOODITEM_List" Relationship="Self.FK_dbRESTAURENT_List_dbFOODITEM_List" FromRole="dbRESTAURENT_List" ToRole="dbFOODITEM_List" />
+          <NavigationProperty Name="dbRESTAURENT_List1" Relationship="Self.FK_dbRESTAURENT_List_dbRESTAURENT_List" FromRole="dbRESTAURENT_List" ToRole="dbRESTAURENT_List1" />
+          <NavigationProperty Name="dbRESTAURENT_List2" Relationship="Self.FK_dbRESTAURENT_List_dbRESTAURENT_List" FromRole="dbRESTAURENT_List1" ToRole="dbRESTAURENT_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List" Relationship="Self.FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List" FromRole="dbRESTAURENT_List" ToRole="dbTRACKCOLLECTION_List" />
+          <NavigationProperty Name="dbTRACKCOLLECTION_List1" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List" FromRole="dbRESTAURENT_List" ToRole="dbTRACKCOLLECTION_List" />
+          <NavigationProperty Name="NGO_RESTAURENT" Relationship="Self.FK_NGO_RESTAURENT_dbRESTAURENT_List" FromRole="dbRESTAURENT_List" ToRole="NGO_RESTAURENT" />
+        </EntityType>
+        <EntityType Name="dbTRACKCOLLECTION_List">
+          <Key>
+            <PropertyRef Name="COLLECTREQUEST_ID" />
+          </Key>
+          <Property Name="COLLECTREQUEST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NGO_ID" Type="Int32" />
+          <Property Name="RESTAURENT_ID" Type="Int32" />
+          <Property Name="FOOD_ID" Type="Int32" />
+          <Property Name="EMPLOYEE_ID" Type="Int32" />
+          <Property Name="DISTRIBUTION_ID" Type="Int32" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dbDISTRIBUTION_List" Relationship="Self.FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbDISTRIBUTION_List" />
+          <NavigationProperty Name="dbDISTRIBUTION_List1" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbDISTRIBUTION_List" />
+          <NavigationProperty Name="dbEMPLOYEE_List" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbEMPLOYEE_List" />
+          <NavigationProperty Name="dbFOODITEM_List" Relationship="Self.FK_dbFOODITEM_List_dbTRACKCOLLECTION_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbFOODITEM_List" />
+          <NavigationProperty Name="dbFOODITEM_List1" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbFOODITEM_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbFOODITEM_List" />
+          <NavigationProperty Name="dbNGO_List" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbNGO_List" />
+          <NavigationProperty Name="dbRESTAURENT_List" Relationship="Self.FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbRESTAURENT_List" />
+          <NavigationProperty Name="dbRESTAURENT_List1" Relationship="Self.FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List" FromRole="dbTRACKCOLLECTION_List" ToRole="dbRESTAURENT_List" />
+        </EntityType>
+        <EntityType Name="NGO_RESTAURENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NG_ID" Type="Int32" />
+          <Property Name="RS_ID" Type="Int32" />
+          <NavigationProperty Name="dbNGO_List" Relationship="Self.FK_NGO_RESTAURENT_dbNGO_List" FromRole="NGO_RESTAURENT" ToRole="dbNGO_List" />
+          <NavigationProperty Name="dbRESTAURENT_List" Relationship="Self.FK_NGO_RESTAURENT_dbRESTAURENT_List" FromRole="NGO_RESTAURENT" ToRole="dbRESTAURENT_List" />
+        </EntityType>
+        <Association Name="FK_dbDISTRIBUTION_List_dbEMPLOYEE_List">
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbEMPLOYEE_List">
+              <PropertyRef Name="EMPLOYYE_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbNGO_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="NGO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List">
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="0..1" />
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Principal>
+            <Dependent Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List">
+          <End Role="dbDISTRIBUTION_List" Type="Self.dbDISTRIBUTION_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbDISTRIBUTION_List">
+              <PropertyRef Name="DISTRIBUTION_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="DISTRIBUTION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbEMPLOYEE_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbEMPLOYEE_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbEMPLOYEE_List_dbNGO_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="dbEMPLOYEE_List">
+              <PropertyRef Name="NGO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbEMPLOYEE_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbEMPLOYEE_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List">
+          <End Role="dbEMPLOYEE_List" Type="Self.dbEMPLOYEE_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbEMPLOYEE_List">
+              <PropertyRef Name="EMPLOYYE_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbFOODITEM_List_dbTRACKCOLLECTION_List">
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="0..1" />
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Principal>
+            <Dependent Role="dbFOODITEM_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbRESTAURENT_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbRESTAURENT_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbFOODITEM_List">
+          <End Role="dbFOODITEM_List" Type="Self.dbFOODITEM_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbFOODITEM_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="FOOD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="NGO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NGO_RESTAURENT_dbNGO_List">
+          <End Role="dbNGO_List" Type="Self.dbNGO_List" Multiplicity="0..1" />
+          <End Role="NGO_RESTAURENT" Type="Self.NGO_RESTAURENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbNGO_List">
+              <PropertyRef Name="NGO_ID" />
+            </Principal>
+            <Dependent Role="NGO_RESTAURENT">
+              <PropertyRef Name="NG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbRESTAURENT_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="1" />
+          <End Role="dbRESTAURENT_List1" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbRESTAURENT_List1">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List">
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="0..1" />
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Principal>
+            <Dependent Role="dbRESTAURENT_List">
+              <PropertyRef Name="COLLECTREQUEST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="dbTRACKCOLLECTION_List" Type="Self.dbTRACKCOLLECTION_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="dbTRACKCOLLECTION_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NGO_RESTAURENT_dbRESTAURENT_List">
+          <End Role="dbRESTAURENT_List" Type="Self.dbRESTAURENT_List" Multiplicity="0..1" />
+          <End Role="NGO_RESTAURENT" Type="Self.NGO_RESTAURENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbRESTAURENT_List">
+              <PropertyRef Name="RESTAURENT_ID" />
+            </Principal>
+            <Dependent Role="NGO_RESTAURENT">
+              <PropertyRef Name="RS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Zero_HungerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dbDISTRIBUTION_List" EntityType="Self.dbDISTRIBUTION_List" />
+          <EntitySet Name="dbEMPLOYEE_List" EntityType="Self.dbEMPLOYEE_List" />
+          <EntitySet Name="dbFOODITEM_List" EntityType="Self.dbFOODITEM_List" />
+          <EntitySet Name="dbNGO_List" EntityType="Self.dbNGO_List" />
+          <EntitySet Name="dbRESTAURENT_List" EntityType="Self.dbRESTAURENT_List" />
+          <EntitySet Name="dbTRACKCOLLECTION_List" EntityType="Self.dbTRACKCOLLECTION_List" />
+          <EntitySet Name="NGO_RESTAURENT" EntityType="Self.NGO_RESTAURENT" />
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbEMPLOYEE_List" Association="Self.FK_dbDISTRIBUTION_List_dbEMPLOYEE_List">
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbFOODITEM_List" Association="Self.FK_dbDISTRIBUTION_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbNGO_List" Association="Self.FK_dbDISTRIBUTION_List_dbNGO_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbRESTAURENT_List" Association="Self.FK_dbDISTRIBUTION_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbDISTRIBUTION_List_dbTRACKCOLLECTION_List">
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbDISTRIBUTION_List">
+            <End Role="dbDISTRIBUTION_List" EntitySet="dbDISTRIBUTION_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbEMPLOYEE_List_dbFOODITEM_List" Association="Self.FK_dbEMPLOYEE_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbEMPLOYEE_List_dbNGO_List" Association="Self.FK_dbEMPLOYEE_List_dbNGO_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbEMPLOYEE_List_dbRESTAURENT_List" Association="Self.FK_dbEMPLOYEE_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbEMPLOYEE_List">
+            <End Role="dbEMPLOYEE_List" EntitySet="dbEMPLOYEE_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbFOODITEM_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbFOODITEM_List_dbTRACKCOLLECTION_List">
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbRESTAURENT_List_dbFOODITEM_List" Association="Self.FK_dbRESTAURENT_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbFOODITEM_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbFOODITEM_List">
+            <End Role="dbFOODITEM_List" EntitySet="dbFOODITEM_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbTRACKCOLLECTION_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NGO_RESTAURENT_dbNGO_List" Association="Self.FK_NGO_RESTAURENT_dbNGO_List">
+            <End Role="dbNGO_List" EntitySet="dbNGO_List" />
+            <End Role="NGO_RESTAURENT" EntitySet="NGO_RESTAURENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbRESTAURENT_List_dbRESTAURENT_List" Association="Self.FK_dbRESTAURENT_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbRESTAURENT_List1" EntitySet="dbRESTAURENT_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List" Association="Self.FK_dbRESTAURENT_List_dbTRACKCOLLECTION_List">
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List" Association="Self.FK_dbTRACKCOLLECTION_List_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="dbTRACKCOLLECTION_List" EntitySet="dbTRACKCOLLECTION_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NGO_RESTAURENT_dbRESTAURENT_List" Association="Self.FK_NGO_RESTAURENT_dbRESTAURENT_List">
+            <End Role="dbRESTAURENT_List" EntitySet="dbRESTAURENT_List" />
+            <End Role="NGO_RESTAURENT" EntitySet="NGO_RESTAURENT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Zero_HungerModelStoreContainer" CdmEntityContainer="Zero_HungerEntities">
+          <EntitySetMapping Name="dbDISTRIBUTION_List">
+            <EntityTypeMapping TypeName="Zero_HungerModel.dbDISTRIBUTION_List">
+              <MappingFragment StoreEntitySet="dbDISTRIBUTION_List">
+                <ScalarProperty Name="DISTRIBUTION_ID" ColumnName="DISTRIBUTION_ID" />
+                <ScalarProperty Name="DISTRIBUTION_TIME" ColumnName="DISTRIBUTION_TIME" />
+                <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+                <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+                <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+                <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEMPLOYEE_List">
+            <EntityTypeMapping TypeName="Zero_HungerModel.dbEMPLOYEE_List">
+              <MappingFragment StoreEntitySet="dbEMPLOYEE_List">
+                <ScalarProperty Name="EMPLOYYE_ID" ColumnName="EMPLOYYE_ID" />
+                <ScalarProperty Name="EMPLOYEE_NAME" ColumnName="EMPLOYEE_NAME" />
+                <ScalarProperty Name="REQUESTED_TIME" ColumnName="REQUESTED_TIME" />
+                <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+                <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+                <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbFOODITEM_List">
+            <EntityTypeMapping TypeName="Zero_HungerModel.dbFOODITEM_List">
+              <MappingFragment StoreEntitySet="dbFOODITEM_List">
+                <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+                <ScalarProperty Name="FOODITEM_List" ColumnName="FOODITEM_List" />
+                <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbNGO_List">
+            <EntityTypeMapping TypeName="Zero_HungerModel.dbNGO_List">
+              <MappingFragment StoreEntitySet="dbNGO_List">
+                <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+                <ScalarProperty Name="NGO_NAME" ColumnName="NGO_NAME" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbRESTAURENT_List">
+            <EntityTypeMapping TypeName="Zero_HungerModel.dbRESTAURENT_List">
+              <MappingFragment StoreEntitySet="dbRESTAURENT_List">
+                <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+                <ScalarProperty Name="RESTAURENT_NAME" ColumnName="RESTAURENT_NAME" />
+                <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+                <ScalarProperty Name="MAXPRESERVATION_TIME" ColumnName="MAXPRESERVATION_TIME" />
+                <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbTRACKCOLLECTION_List">
+            <EntityTypeMapping TypeName="Zero_HungerModel.dbTRACKCOLLECTION_List">
+              <MappingFragment StoreEntitySet="dbTRACKCOLLECTION_List">
+                <ScalarProperty Name="COLLECTREQUEST_ID" ColumnName="COLLECTREQUEST_ID" />
+                <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+                <ScalarProperty Name="RESTAURENT_ID" ColumnName="RESTAURENT_ID" />
+                <ScalarProperty Name="FOOD_ID" ColumnName="FOOD_ID" />
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+                <ScalarProperty Name="DISTRIBUTION_ID" ColumnName="DISTRIBUTION_ID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGO_RESTAURENT">
+            <EntityTypeMapping TypeName="Zero_HungerModel.NGO_RESTAURENT">
+              <MappingFragment StoreEntitySet="NGO_RESTAURENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NG_ID" ColumnName="NG_ID" />
+                <ScalarProperty Name="RS_ID" ColumnName="RS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
