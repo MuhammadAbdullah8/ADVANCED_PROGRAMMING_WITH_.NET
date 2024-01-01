@@ -1,0 +1,14 @@
+R:\VS\BDMinimumrent\BLL\bin\Debug\BLL.dll
+R:\VS\BDMinimumrent\BLL\bin\Debug\BLL.pdb
+R:\VS\BDMinimumrent\BLL\bin\Debug\AutoMapper.dll
+R:\VS\BDMinimumrent\BLL\bin\Debug\DAL.dll
+R:\VS\BDMinimumrent\BLL\bin\Debug\EntityFramework.dll
+R:\VS\BDMinimumrent\BLL\bin\Debug\DAL.pdb
+R:\VS\BDMinimumrent\BLL\bin\Debug\DAL.dll.config
+R:\VS\BDMinimumrent\BLL\bin\Debug\AutoMapper.xml
+R:\VS\BDMinimumrent\BLL\bin\Debug\EntityFramework.xml
+R:\VS\BDMinimumrent\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+R:\VS\BDMinimumrent\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+R:\VS\BDMinimumrent\BLL\obj\Debug\BLL.csproj.CopyComplete
+R:\VS\BDMinimumrent\BLL\obj\Debug\BLL.dll
+R:\VS\BDMinimumrent\BLL\obj\Debug\BLL.pdb

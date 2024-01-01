@@ -1,0 +1,15 @@
+R:\VS\BDMinimumrent\DAL\bin\Debug\DAL.dll.config
+R:\VS\BDMinimumrent\DAL\bin\Debug\DAL.dll
+R:\VS\BDMinimumrent\DAL\bin\Debug\DAL.pdb
+R:\VS\BDMinimumrent\DAL\bin\Debug\EntityFramework.dll
+R:\VS\BDMinimumrent\DAL\bin\Debug\EntityFramework.SqlServer.dll
+R:\VS\BDMinimumrent\DAL\bin\Debug\EntityFramework.xml
+R:\VS\BDMinimumrent\DAL\bin\Debug\EntityFramework.SqlServer.xml
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.csproj.CopyComplete
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.dll
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.pdb
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.Migrations.initDB.resources
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+R:\VS\BDMinimumrent\DAL\obj\Debug\DAL.Migrations.addedreviewdby.resources
