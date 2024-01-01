@@ -18,6 +18,30 @@ namespace Zero_Hunger.Controllers
             return View();
         }
 
+         [HttpGet]
+        public ActionResult OpenRequest()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult OpenRequest(dbTRACKCOLLECTION_List model)
+        {
+            if (ModelState.IsValid)
+            {
+                dbTRACKCOLLECTION_List obj = new dbTRACKCOLLECTION_List();
+                obj.RESTAURENT_ID = model.RESTAURENT_ID;
+                obj.STATUS = model.STATUS;
+                //obj.DISTRIBUTION_ID = model.DISTRIBUTION_ID;
+                obj.EMPLOYEE_ID = model.EMPLOYEE_ID;
+                dbObj.dbTRACKCOLLECTION_List.Add(obj);
+                dbObj.SaveChanges();
+
+                return RedirectToAction("Indexr", "Restaurent");
+            }
+
+            return View(model);
+        }
 
         public ActionResult Signupr()
         {
@@ -66,7 +90,7 @@ namespace Zero_Hunger.Controllers
         public ActionResult Logoutr()
         {
             Session.Clear();
-            return RedirectToAction("Signupr", "Restaurent");
+            return RedirectToAction("LandingPage", "Home");
         }
 
         [HttpGet]
@@ -77,7 +101,7 @@ namespace Zero_Hunger.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(dbRESTAURENT_List model)
+        public ActionResult Loginr(dbRESTAURENT_List model)
         {
             //dbNGO_List obj = new dbNGO_List();
             var checkLogin = dbObj.dbRESTAURENT_List.Where(x => x.RESTAURENT_NAME.Equals(model.RESTAURENT_NAME) && x.password.Equals(model.password)).FirstOrDefault();

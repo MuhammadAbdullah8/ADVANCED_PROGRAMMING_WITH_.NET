@@ -20,6 +20,34 @@ namespace Zero_Hunger.Controllers
         }
 
 
+
+        [HttpGet]
+        public ActionResult AssignedRequest()
+        {
+            int COLLECTREQUEST_ID = Convert.ToInt32(Session["EMPLOYEE_ID"]);
+            Zero_HungerEntities requestDB = new Zero_HungerEntities();
+            var request = (from model in requestDB.dbTRACKCOLLECTION_List
+                           where model.EMPLOYEE_ID == COLLECTREQUEST_ID && model.STATUS == "Assigned"
+                           select model);
+            return View(request);
+        }
+
+        [HttpPost]
+        public ActionResult AssignedRequest(dbTRACKCOLLECTION_List model)
+        {
+            var requestDB = new Zero_HungerEntities();
+            var request = (from r in requestDB.dbTRACKCOLLECTION_List
+                           where r.COLLECTREQUEST_ID.Equals("EMPLOYEE_ID")
+                           select r).SingleOrDefault();
+
+            requestDB.Entry(request).CurrentValues.SetValues(model);
+            requestDB.SaveChanges();
+            return RedirectToAction("AssignedRequest", "Employee");
+        }
+
+
+
+
         public ActionResult Signupe()
         {
             return View();
@@ -67,7 +95,7 @@ namespace Zero_Hunger.Controllers
         public ActionResult Logoute()
         {
             Session.Clear();
-            return RedirectToAction("Signupe", "Employee");
+            return RedirectToAction("LandingPage", "Home");
         }
 
         [HttpGet]

@@ -1,0 +1,32 @@
+﻿@model Zero_Hunger.db.dbTRACKCOLLECTION_List
+@{
+    ViewBag.Title = "OpenRequest";
+    Layout = "~/Views/Shared/_Layoutindexr.cshtml";
+}
+
+<h2>OpenRequest Restaurent dashboard</h2>
+
+<div class="form-horizontal">
+    <h4>Collection Request</h4>
+</div>
+
+<form action="" method="post">
+
+
+    @*<input type="text" name="restaurent_name" value=@Session["RESTAURENT_NAME"] hidden />*@
+    <input type="number" name="RESTAURENT_ID" value="1" hidden />
+
+    <input type="text" name="STATUS" value="Pending" hidden />
+
+    @*<input type="number" name="DISTRIBUTION_ID" value="1" hidden />*@
+
+    <input type="number" name="EMPLOYEE_ID" value="1" hidden />
+
+    <input type="submit" class="btn btn-success" value="Open Collection Request to restaurent" />
+
+
+
+
+
+
+</form>

@@ -13,10 +13,50 @@ namespace Zero_Hunger.Controllers
 
         // GET: Ngo
 
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
+
         public ActionResult Index()
         {
-            return View();
+            Zero_HungerEntities requestDB = new Zero_HungerEntities();
+            var request = requestDB.dbTRACKCOLLECTION_List;
+            return View(request);
         }
+
+        [HttpGet]
+        public ActionResult PendingRequest()
+        {
+            Zero_HungerEntities requestDB = new Zero_HungerEntities();
+            var request = (from req in requestDB.dbTRACKCOLLECTION_List
+                           where req.STATUS.Equals("Pending")
+                           select req);
+            return View(request);
+        }
+
+        [HttpPost]
+        public ActionResult PendingRequest(dbTRACKCOLLECTION_List model)
+        {
+            var requestDB = new Zero_HungerEntities();
+            var request = (from r in requestDB.dbTRACKCOLLECTION_List
+                           where r.COLLECTREQUEST_ID.Equals(model.COLLECTREQUEST_ID)
+                           select r).SingleOrDefault();
+            if (request != null)
+            {
+                requestDB.Entry(request).CurrentValues.SetValues(model);
+                requestDB.SaveChanges();
+                return RedirectToAction("PendingRequest", "Ngo");
+            }
+
+            TempData["Msg"] = "Employee ID Invalid";
+            return RedirectToAction("PendingRequest", "Ngo");
+        }
+
+
+
+
 
 
         public ActionResult Signup()
@@ -66,7 +106,7 @@ namespace Zero_Hunger.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Signup", "Ngo");
+            return RedirectToAction("LandingPage", "Home");
         }
 
         [HttpGet]

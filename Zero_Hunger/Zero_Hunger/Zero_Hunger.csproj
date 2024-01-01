@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NgoController.cs" />
     <Compile Include="Controllers\RestaurentController.cs" />
     <Compile Include="db\dbDISTRIBUTION_List.cs">
@@ -249,10 +250,16 @@
     <Content Include="Views\Restaurent\Indexr.cshtml" />
     <Content Include="Views\Restaurent\Signupr.cshtml" />
     <Content Include="Views\Restaurent\Loginr.cshtml" />
+    <Content Include="Views\Shared\_Layouthome.cshtml" />
+    <Content Include="Views\Home\LandingPage.cshtml" />
+    <Content Include="Views\Restaurent\OpenRequest.cshtml" />
+    <Content Include="Views\Employee\AssignedRequest.cshtml" />
+    <Content Include="Views\Ngo\PendingRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ResAuth\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -6,3 +6,29 @@
 
 <h2>Index</h2>
 
+<h2>Dashboard</h2>
+
+<table class="table">
+    <tr>
+        <th>RESTAURENT_ID</th>
+        <th>DISTRIBUTION_ID</th>
+        <th>EMPLOYEE_ID</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@data.RESTAURENT_ID</td>
+            <td>@data.EMPLOYEE_ID</td>
+            <@*td>@data.DISTRIBUTION_ID</td>*@
+            <td>@data.STATUS</td>
+        </tr>
+    }
+
+
+    <a href="PendingRequest">Pending Request</a>
+
+
+</table>
+
+<a href="PendingRequest">Pending Request</a>

@@ -1,0 +1,43 @@
+﻿
+
+@{
+    ViewBag.Title = "PendingRequest";
+    Layout = "~/Views/Shared/_Layoutindex.cshtml";
+}
+
+<h2>PendingRequest</h2>
+
+
+<h2>PendingRequest</h2>
+
+@if (TempData["Msg"] != null)
+{
+    <h5 class="alert alert-danger">@TempData["Msg"]</h5>
+}
+
+<table class="table">
+    <tr>
+    <th>RESTAURENT_ID</th>
+    <th>DISTRIBUTION_ID</th>
+    <th>EMPLOYEE_ID</th>
+    <th>Status</th>
+    </tr>
+</table>
+    @foreach (var data in Model)
+    {
+        <form action="" method="post">
+        <tr>
+
+            <td>
+                <input type="number" name="COLLECTREQUEST_ID" value=@data.COLLECTREQUEST_ID hidden />
+                <input type="number" name="RESTAURENT_ID" value=@data.RESTAURENT_ID hidden />
+              
+                @*<input type="number" name="DISTRIBUTION_ID" value=@data.DISTRIBUTION_ID hidden />*@
+                <input type="number" name="EMPLOYEE_ID" />
+                <input type="text" name="STATUS" value="Assigned" hidden />
+            </td>
+            <td><input type="submit" class="btn btn-success" value="Accept Request" /></td>
+        </tr>
+        </form>
+    }
+
