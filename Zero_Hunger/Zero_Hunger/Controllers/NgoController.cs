@@ -24,6 +24,7 @@ namespace Zero_Hunger.Controllers
             Zero_HungerEntities requestDB = new Zero_HungerEntities();
             var request = requestDB.dbTRACKCOLLECTION_List;
             return View(request);
+
         }
 
         [HttpGet]
